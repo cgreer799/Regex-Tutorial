@@ -47,13 +47,19 @@ The quantifer `?` is used twice in this regex, once for the day and once for the
 
 ### Bracket Expressions
 
+Bracket expressions are used to match a single character or collating element denoted by the `[]`. In the date format regex, the brackets are commonly used to match to a range of numbers. For example: `[1-9]` will match any number between 1 and 9 including 1 and 9. Brackets in the date format regex are also used to specify numbers. For example: `[12]` will match to either 1 or 2, but nothing else.
+
 ### Character Classes
+
+Character classes are the expressions or symbols inside the bracket expression. For example the `0-9` in the `[0-9]` bracket expression. You cannot use character classes outside of bracket expressions. For example, `3[01]` can match to 30 or 31, but `301` will only match to 301. 
 
 ### The OR Operator
 
-### Flags
+The OR operator is denoted by `|` in the regex. The `|` can be literally interpreted as `or` in the regex expression. For example: In the month group of the date format regex, `0?[1-9]|1[012]`, we see the `|` between `0?[1-9]` and `1[012]`, so this means that the expression can either match to `0?[1-9]` or `1[012]`.
 
 ### Character Escapes
+
+Character classes also inclue metacharacters such as `]` ,`\` ,`^` ,`-` , etc. Metacharacters have special meanings inside the character class and so have to be escaped with a backslash. For example: in the date format regex we use `[ \/\-]` to match a separator between the day, month and year. The ` ` (space) does not need to be escaped and so it does not need a `\` (backslash) preceding it and the `/` (forward slash) and the `-` (hyphen) both  need to be escaped and so they are preceded by the `\` (backslash). 
 
 ## Author
 
